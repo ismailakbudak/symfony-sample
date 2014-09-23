@@ -1,0 +1,3 @@
+contact:
+    path:     /contact
+    defaults: { _controller: AcmeDemoBundle:Main:contact }
