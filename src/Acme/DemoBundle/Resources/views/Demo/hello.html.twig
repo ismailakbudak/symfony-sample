@@ -1,0 +1,42 @@
+{% extends "AcmeDemoBundle::layout.html.twig" %}
+
+{% block title "Hello " ~ name %}
+
+{% block content %}
+    {{ include("AcmeDemoBundle:Demo:embedded.html.twig") }}
+
+    {{ render(controller("AcmeDemoBundle:Demo:topArticles", {'num': 10})) }}
+
+    <a href="{{ path('_demo_hello', { 'name': 'Thomas' }) }}">Greet Thomas!</a>
+    <a href="{{ path('_demo_top', { 'num': 10 }) }}">Top articles!</a>
+
+{% endblock %}
+
+
+{# 
+
+
+<h1>{{ article.title|trim|capitalize }}</h1>
+
+<p>{{ article.content|striptags|slice(0, 1024) }}</p>
+
+<p>Tags: {{ article.tags|sort|join(", ") }}</p>
+
+<p>Next article will be published on {{ 'next Monday'|date('M j, Y')}}</p>
+
+{{ render(controller("AcmeDemoBundle:Demo:topArticles", {'num': 10})) }}
+
+
+<div>{{ app.session.flashbag.get('notice') }}</div>
+
+{{ app.request.query.get('page') }}
+
+{{ app.request.parameter('page') }}
+
+
+
+
+ #}
+
+
+{% set code = code(_self) %}
